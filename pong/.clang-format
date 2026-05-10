@@ -1,0 +1,10 @@
+BasedOnStyle: LLVM
+IndentWidth: 2
+Language: Cpp
+Standard: Cpp20
+PointerAlignment: Left
+ColumnLimit: 120
+BinPackArguments: false
+BinPackParameters: false
+AllowShortFunctionsOnASingleLine: All
+AlignAfterOpenBracket: DontAlign
