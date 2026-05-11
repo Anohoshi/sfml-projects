@@ -78,9 +78,9 @@ void Game::update(sf::Time dt) {
   }
 
   // Ball
-  checkCollisions();
-
   ball_.update(dt);
+
+  checkCollisions();
 }
 
 void Game::render() {
