@@ -9,10 +9,6 @@
 
 class Game {
 private:
-  // Constants
-  static constexpr float windowWidth = 1920;
-  static constexpr float windowHeight = 1080;
-
   // View
   sf::VideoMode vm_;
   sf::RenderWindow window_;
