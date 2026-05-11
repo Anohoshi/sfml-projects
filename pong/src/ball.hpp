@@ -13,7 +13,7 @@ private:
 
 public:
   Ball(const sf::Vector2f start, const sf::Vector2f velocity, sf::Color color = sf::Color::White, const float radius = 6.f);
-  sf::CircleShape getShape() const;
+  const sf::CircleShape& getShape() const;
   sf::FloatRect getBounds() const;
   void reset(const sf::Vector2f start);
   void reflectX();

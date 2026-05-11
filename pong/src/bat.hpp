@@ -14,7 +14,7 @@ private:
 
 public:
   Bat(sf::Vector2f start, float speed, sf::Color color);
-  sf::RectangleShape getShape() const;
+  const sf::RectangleShape& getShape() const;
   sf::FloatRect getBounds() const;
   void update(sf::Time dt, int direction);
 };

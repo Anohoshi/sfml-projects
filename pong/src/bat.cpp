@@ -6,7 +6,7 @@ Bat::Bat(sf::Vector2f start, float speed, sf::Color color) : speed_(speed) {
   shape_.setSize(size);
 }
 
-sf::RectangleShape Bat::getShape() const {
+const sf::RectangleShape& Bat::getShape() const {
   return shape_;
 }
 

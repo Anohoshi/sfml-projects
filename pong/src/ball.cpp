@@ -9,7 +9,7 @@ Ball::Ball(const sf::Vector2f start, const sf::Vector2f velocity, sf::Color colo
   shape_.setPosition(start);
 }
 
-sf::CircleShape Ball::getShape() const {
+const sf::CircleShape& Ball::getShape() const {
   return shape_;
 }
 sf::FloatRect Ball::getBounds() const {
