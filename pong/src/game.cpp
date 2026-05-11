@@ -1,16 +1,30 @@
 #include "game.hpp"
 #include "ball.hpp"
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/VideoMode.hpp>
 #include <SFML/Window/WindowEnums.hpp>
+#include <iostream>
+#include <string>
 
-Game::Game() : vm_(sf::VideoMode::getDesktopMode()), window_(vm_, "Pong", sf::State::Fullscreen), leftBat_({50, vm_.size.y / 2.f}, 200, sf::Color::White), rightBat_({vm_.size.x - 50.f, vm_.size.y / 2.f}, 200, sf::Color::White), ball_({vm_.size.x / 2.f, vm_.size.y / 2.f}, {200.f, 200.f}) {
+Game::Game() : vm_(sf::VideoMode::getDesktopMode()), window_(vm_, "Pong", sf::State::Fullscreen), leftBat_({50, vm_.size.y / 2.f}, 200, sf::Color::White), rightBat_({vm_.size.x - 50.f, vm_.size.y / 2.f}, 200, sf::Color::White), ball_({vm_.size.x / 2.f, vm_.size.y / 2.f}, {200.f, 200.f}), scoreText_(font_) {
   view_.setSize({static_cast<float>(vm_.size.x), static_cast<float>(vm_.size.y)});
   view_.setCenter({static_cast<float>(vm_.size.x) / 2.f, static_cast<float>(vm_.size.y) / 2.f});
   window_.setView(view_);
+
+  // Initialize HUD
+  if (!font_.openFromFile("/home/anohoshi/Programming/C++/sfml-projects/pong/fonts/GreaterTheory.otf")) {
+    std::cerr << "Failed to load font" << std::endl;
+  }
+
+  scoreText_.setFont(font_);
+  scoreText_.setCharacterSize(40);
+  scoreText_.setFillColor(sf::Color::White);
+  scoreText_.setPosition({vm_.size.x / 2.f, 20.f});
+  scoreText_.setString("");
 }
 
 void Game::processInput() {
@@ -43,7 +57,7 @@ void Game::update(sf::Time dt) {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::W)) {
     if (leftBat_.getBounds().position.y > 0) // не уехала за верх
       leftBat_.update(dt, -1);
-  } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::S)) {
+  } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::S)) {
     if (leftBat_.getBounds().position.y + leftBat_.getBounds().size.y < vm_.size.y) // не уехала за низ
       leftBat_.update(dt, 1);
   }
@@ -66,6 +80,14 @@ void Game::update(sf::Time dt) {
 
 void Game::render() {
   window_.clear();
+
+  // Text
+  scoreText_.setString(std::to_string(leftScore_) + " | " + std::to_string(rightScore_));
+  sf::FloatRect textBounds = scoreText_.getLocalBounds();
+  scoreText_.setOrigin({textBounds.size.x / 2.f, textBounds.size.y / 2.f});
+  scoreText_.setPosition({vm_.size.x / 2.f, 40.f});
+  window_.draw(scoreText_);
+
   window_.draw(leftBat_.getShape());
   window_.draw(rightBat_.getShape());
   window_.draw(ball_.getShape());
