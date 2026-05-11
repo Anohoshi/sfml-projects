@@ -24,6 +24,17 @@ Each project includes its own `CMakeLists.txt` and `Makefile`.
 | Build system | CMake / Make                            |
 | Compiler     | Clang (Linux)                           |
 | Math         | Custom vector and matrix implementation |
+## 📐 What Each Project Teaches
+
+| \#    | Project             | Graphics Concept                  | Math                        |
+| ----- | ------------------- | --------------------------------- | --------------------------- |
+| **1** | Pong                | Sprite rendering, frame loop      | Rectangle intersection      |
+| **2** | Timber              | Texture atlas, sprite composition | —                           |
+| **3** | Asteroids           | Polymorphic entities              | sin/cos, velocity vectors   |
+| **4** | Raycaster           | Pseudo-3D, DDA algorithm          | Vectors, perspective divide |
+| **5** | 3D Cube Spin        | Wireframe rendering, matrices     | 4×4 Model/View/Projection   |
+| **6** | Software Rasterizer | Full graphics pipeline on CPU     | Barycentrics, z-buffer      |
+
 ## 📊 Progress
 
 | \#    | Project             | Status      | Key Skills                                     |
@@ -41,15 +52,13 @@ Each project includes its own `CMakeLists.txt` and `Makefile`.
 git clone https://github.com/Anohoshi/sfml-projects.git
 cd sfml-projects/pong
 
-# Build
 # --- CMake ---
 cmake -B build
 cmake --build build
+./build/pong 
 
-# Run
-./build/Pong 
-
-# --- Make ---
+# --- OR with Make ---
+make
 make run
 ```
 
