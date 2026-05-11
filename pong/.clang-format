@@ -3,6 +3,6 @@ IndentWidth: 2
 Language: Cpp
 Standard: c++20
 PointerAlignment: Left
-ColumnLimit: 200090
-AlignAfterOpenBracket: None
+ColumnLimit: 0
+AlignAfterOpenBracket: DontAlign
 AllowShortFunctionsOnASingleLine: All
