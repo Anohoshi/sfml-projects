@@ -7,7 +7,7 @@ This repository is my path from 2D games to graphics programming. Each project s
 ## 📁 Repository Structure
 sfml-projects
   1. pong # Pong — OOP, collisions, game states
-  2. timber # Timber — sprites, game loop
+  2. particle-fountain
   3. asteroids # Asteroids — inheritance, polymorphism
   4. raycaster # Pseudo-3D (Wolfenstein 3D) — DDA, vectors
   5. cube-spin # 3D Cube Spin — 4×4 matrices from scratch
@@ -29,7 +29,7 @@ Each project includes its own `CMakeLists.txt` and `Makefile`.
 | \#    | Project             | Graphics Concept                  | Math                        |
 | ----- | ------------------- | --------------------------------- | --------------------------- |
 | **1** | Pong                | Sprite rendering, frame loop      | Rectangle intersection      |
-| **2** | Timber              | Texture atlas, sprite composition | —                           |
+| **2** | Particle Fountain   | Texture atlas, sprite composition | —                           |
 | **3** | Asteroids           | Polymorphic entities              | sin/cos, velocity vectors   |
 | **4** | Raycaster           | Pseudo-3D, DDA algorithm          | Vectors, perspective divide |
 | **5** | 3D Cube Spin        | Wireframe rendering, matrices     | 4×4 Model/View/Projection   |
@@ -40,7 +40,7 @@ Each project includes its own `CMakeLists.txt` and `Makefile`.
 | \#    | Project             | Status      | Key Skills                                     |
 | ----- | ------------------- | ----------- | ---------------------------------------------- |
 | **1** | Pong                | In progress | Classes, encapsulation, collision detection    |
-| **2** | Timber              | Pending     | Sprites, textures, game loop                   |
+| **2** | Particle Fountain   | Pending     | Sprites, textures, game loop                   |
 | **3** | Asteroids           | Pending     | Polymorphism, `vector<Entity*>`, sin/cos       |
 | **4** | Raycaster           | Pending     | Vectors, DDA algorithm, perspective projection |
 | **5** | 3D Cube Spin        | Pending     | 4×4 matrices, Model/View/Projection            |
