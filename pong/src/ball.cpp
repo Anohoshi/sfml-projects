@@ -16,6 +16,10 @@ sf::FloatRect Ball::getBounds() const {
   return shape_.getGlobalBounds();
 }
 
+void Ball::reset(const sf::Vector2f start) {
+  shape_.setPosition(start);
+}
+
 void Ball::reflectX() {
   velocity_.x = -velocity_.x;
 }
