@@ -25,6 +25,16 @@ void Game::processInput() {
     }
   }
 }
+
+void Game::checkCollisions() {
+  if (ball_.getPosition().y <= 0 || ball_.getPosition().y >= vm_.size.y)
+    ball_.reflectY();
+  if (ball_.getPosition().x <= 0 || ball_.getPosition().x >= vm_.size.x)
+    ball_.reflectX();
+  if (ball_.getBounds().findIntersection(leftBat_.getBounds()) || ball_.getBounds().findIntersection(rightBat_.getBounds()))
+    ball_.reflectX();
+}
+
 void Game::update(sf::Time dt) {
   if (paused)
     return;
@@ -47,6 +57,9 @@ void Game::update(sf::Time dt) {
     if (rightBat_.getBounds().position.y + rightBat_.getBounds().size.y < vm_.size.y) // не уехала за низ
       rightBat_.update(dt, 1);
   }
+
+  // Ball
+  checkCollisions();
 
   ball_.update(dt);
 }
